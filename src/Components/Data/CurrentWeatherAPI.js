@@ -6,8 +6,8 @@ const apiKey='a70472aab8b16f40783f2271ba271199';
 
 export const getWeatherData= async (cityName)=>{
     try{
-        //const {data}= await axios.get(baseURL + `q=${cityName}&appid=${apiKey}`);
-        const {data}= await axios.get(baseURL + 'q=Uppsala&appid=a70472aab8b16f40783f2271ba271199');
+        const {data}= await axios.get(baseURL + `q=${cityName}&appid=${apiKey}`);
+        //const {data}= await axios.get(baseURL + 'q=London&appid=a70472aab8b16f40783f2271ba271199');
 
         console.log(data);
         return data;
@@ -17,3 +17,5 @@ export const getWeatherData= async (cityName)=>{
         throw error;
     }
 }
+
+export default getWeatherData;

@@ -1,9 +1,9 @@
 import React, {useState, useEffect} from 'react';
-import {getCurrentWeather} from "./Data/CurrentWeatherAPI";
+import getCurrentWeather from "./Data/CurrentWeatherAPI";
 
 export default function Wheather() {
     const [weatherData, setCurrentWeatherData] =useState(null);
-    const [city, setCity] = useState('Uppsala');
+    const [city, setCity] = useState('Umeå');
     const [loading, setLoading] = useState(false);
 
     const getCurrentData =async () =>{
@@ -39,13 +39,15 @@ export default function Wheather() {
                     </div>
                     <h3>{weatherData.weather[0].main}</h3>
                     <div className="temprature">
-                        <h1>25&deg;C</h1>
+                        <h1>{parseFloat(weatherData.main.temp -273.15).toFixed(1)}&deg;C</h1>
                     </div>
                     <div className="location">
                         <h3><i className="fa fa-street-view"></i>{weatherData.name} | {weatherData.sys.country}</h3>
                     </div>
                     <div className="temprature-range">
-                        <h6>Min: 15&deg;C || Max: 28&deg;C || Luftfuktighet: 12%</h6>
+                        <h6>Min: {parseFloat(weatherData.main.temp_min -273.15).toFixed(1)}&deg;C 
+                        || Max: {parseFloat(weatherData.main.temp_max -273.15).toFixed(1)}&deg;C 
+                        || Luftfuktighet: {weatherData.main.humidity}%</h6>
                     </div>
 
                 </div>
