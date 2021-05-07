@@ -8,13 +8,15 @@ export default function Wheather() {
 
     const getCurrentData =async () =>{
         try{
-
+            setLoading(true);
             const currentData = await getCurrentWeather(city);
             setCurrentWeatherData(currentData);
             console.log(currentData);
+            setLoading(false);
 
         }catch(error){
             console.log(error.message);
+            setLoading(false);
         }
     }
 
@@ -31,6 +33,7 @@ export default function Wheather() {
                     <button type="button" onClick={() => getCurrentData()}>Sök</button>
                 </div>     
             </div>
+        
             {weatherData !== null ? (  
                 <div className="main-container">
                     <h4>Live väderprognos</h4>
