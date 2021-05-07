@@ -3,7 +3,7 @@ import getCurrentWeather from "./Data/CurrentWeatherAPI";
 
 export default function Wheather() {
     const [weatherData, setCurrentWeatherData] =useState(null);
-    const [city, setCity] = useState('Umeå');
+    const [city, setCity] = useState('Luleå');
     const [loading, setLoading] = useState(false);
 
     const getCurrentData =async () =>{
@@ -28,7 +28,7 @@ export default function Wheather() {
                 <h2 className="title">< i className="fa fa-cloud"></i>UR O SKUR</h2>
                 <div className="search-form">
                     <input type="text" onChange={(e) => setCity(e.target.value)} placeholder="Sök efter plats"/>
-                    <button type="button" onChange={(e) => getCurrentData()}>Sök</button>
+                    <button type="button" onClick={() => getCurrentData()}>Sök</button>
                 </div>     
             </div>
             {weatherData !== null ? (  
