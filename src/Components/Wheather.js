@@ -35,11 +35,14 @@ export default function Wheather() {
                 <div className="main-container">
                     <h4>Live väderprognos</h4>
                     <div className="weather-icon">
-                        <i className="fa fa-sun"></i>
+                        <img src={`http://openweathermap.org/img/w/${weatherData.weather[0].icon}.png`} alt ="weather icon"/>
                     </div>
                     <h3>{weatherData.weather[0].main}</h3>
                     <div className="temprature">
                         <h1>{parseFloat(weatherData.main.temp -273.15).toFixed(1)}&deg;C</h1>
+                    </div>
+                    <div className="temprature-feel">
+                        <h1>Känns som: {parseFloat(weatherData.main.feels_like -273.15).toFixed(1)}&deg;C</h1>
                     </div>
                     <div className="location">
                         <h3><i className="fa fa-street-view"></i>{weatherData.name} | {weatherData.sys.country}</h3>
