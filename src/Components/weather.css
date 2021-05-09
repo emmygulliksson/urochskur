@@ -1,0 +1,181 @@
+.container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 10vh  90vh  ;
+    gap: 0px 0px;
+    grid-template-areas:
+      "header"
+      "main";
+      width: 100%;
+      height: 100%;
+    
+  }
+
+  .header{
+      grid-area: header;
+      background-color: #8C8F63;
+      
+      display: grid;
+      grid-template-columns: 1fr 3fr 1fr;
+      grid-template-rows: 1fr  ;
+      gap: 0px 0px;
+      grid-template-areas:
+        "left middle right";
+        width: 100%;
+        height: 100%;
+      align-items: center;
+      justify-items: center;
+      
+  }
+
+  .leftheader{
+      grid-area: left;
+  }
+
+  .mainheader{
+      grid-area: middle;
+ 
+  }
+
+  .mainheader img{
+    max-height: 10vh;
+  }
+
+  .rightheader{
+      grid-area: right;
+      max-height: 10vh;
+      align-items: center;
+      justify-items: center;
+  }
+
+
+  .main-container{
+      grid-area: main;
+      display: grid;
+      grid-template-columns: 1fr 8fr 1fr;
+      grid-template-rows: 1fr  ;
+      gap: 0px 0px;
+      grid-template-areas:
+        "left middle right";
+        width: 100%;
+        height: 100%;
+      align-items: center;
+      justify-items: center;
+  }
+
+
+  .weather-icon img{
+      height: 15vh;
+  }
+
+  .leftmain{
+      grid-area: left;
+  }
+
+  .rightmain{
+      grid-area: right;
+  }
+
+  .middlemain{
+      grid-area: middle;
+      background-color: #EBEBEB;
+      border-radius: 30px;
+      width: 60%;
+      height: 90%;
+     
+      align-content: center;
+      justify-content: center;
+      text-align: center;
+
+
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: 2fr 1.2fr ;
+      gap: 0px 0px;
+      grid-template-areas:
+        "top"
+        "bottom";
+     
+  }
+
+  .bottom{
+    grid-area: bottom;
+    background-color: #E4E4E4;
+    width: 100%;
+    height:100%;
+    border-radius: 0px 0px 30px 30px;
+    padding: 2em;
+}
+
+.top{
+    grid-area: top;
+    padding: 2em;
+    display: grid;
+    grid-template-columns: 1fr 1.5fr 1fr;
+    grid-template-rows: 3fr 0.5fr;
+    gap: 0px 0px;
+    grid-template-areas:
+      "temp temp temp"
+      "min actual max";
+}
+
+.temp{
+    grid-area: temp;
+    display: grid;
+    align-items: center;
+    justify-items: center;
+}
+
+.min{
+    grid-area: min;
+    border-right: 1px solid #3F3A3A;
+}
+
+.actual{
+    grid-area: actual;
+}
+
+.max{
+    grid-area: max;
+    border-left: 1px solid #3F3A3A;
+}
+
+.min, .actual, .max{
+    display: grid;
+    align-items: flex-end;
+    justify-items: center;
+}
+
+
+  .sun{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 2fr 1fr ;
+    gap: 0px 0px;
+    grid-template-areas:
+      "rise  down"
+      "humidity humidity";
+      padding-left: 3em;
+      padding-right: 3em;
+
+  }
+
+  .sunrise img, .sundown img{
+      height: 7vh;
+  }
+
+  .sunrise{
+      grid-area: rise;
+  }
+
+  .sundown{
+      grid-area: down;
+  }
+
+ .temprature-range{
+     grid-area: humidity;
+     margin-top: 1.5em;
+     text-align: center;
+     width: 100%;
+
+ }
