@@ -3,8 +3,11 @@ import getCurrentWeather from "./Data/CurrentWeatherAPI";
 
 export default function Wheather() {
     const [weatherData, setCurrentWeatherData] =useState(null);
-    const [city, setCity] = useState('Luleå');
+    const [city, setCity] = useState('Umeå');
     const [loading, setLoading] = useState(false);
+
+    let date= new Date();
+   // let sunrise= new Date(weatherData.sys.sunrise*1000);
 
     const getCurrentData =async () =>{
         try{
@@ -45,15 +48,19 @@ export default function Wheather() {
                         <h1>{parseFloat(weatherData.main.temp -273.15).toFixed(1)}&deg;C</h1>
                     </div>
                     <div className="temprature-feel">
-                        <h1>Känns som: {parseFloat(weatherData.main.feels_like -273.15).toFixed(1)}&deg;C</h1>
+                        <h1>Känns som {parseFloat(weatherData.main.feels_like -273.15).toFixed(1)}&deg;C</h1>
                     </div>
                     <div className="location">
                         <h3><i className="fa fa-street-view"></i>{weatherData.name} | {weatherData.sys.country}</h3>
                     </div>
                     <div className="temprature-range">
                         <h6>Min: {parseFloat(weatherData.main.temp_min -273.15).toFixed(1)}&deg;C 
-                        || Max: {parseFloat(weatherData.main.temp_max -273.15).toFixed(1)}&deg;C 
+                        || Max: {parseFloat(weatherData.main.temp_max-273.15).toFixed(1)}&deg;C 
                         || Luftfuktighet: {weatherData.main.humidity}%</h6>
+                    </div>
+                    <div className="sun">
+                        <h6>Sunrise {new Date(weatherData.sys.sunrise*1000).toLocaleTimeString("en-GB")} || Sunset {new Date(weatherData.sys.sunset*1000).toLocaleTimeString("en-GB")}</h6>
+
                     </div>
 
                 </div>
