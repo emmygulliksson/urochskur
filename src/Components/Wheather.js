@@ -1,19 +1,39 @@
 import React, {useState, useEffect} from 'react';
 import getCurrentWeather from "./Data/CurrentWeatherAPI";
+<<<<<<< HEAD
+import './weather.css' 
+=======
 //import forecastWeather from "./Data/forecast5DaysWeather";
 
 import './weather.css'
+>>>>>>> f7baf371a87b99080d01d4c1b749f040ce8150f2
 import logoimage from './img/logouroskur.png'
 import sunriseimage from './img/sunrise.png'
 import sundownimage from './img/sundown.png'
 
+<<<<<<< HEAD
+=======
+import rainypic from './img/rainy.jpg'
+
+import mistpic from './img/mist.jpg'
+
+import gif from './img/giffi.gif'
+
+
+>>>>>>> d5b34d8d292b2a5413d739ffd6aa0468c2764271
 
 export default function Wheather() {
     const [weatherData, setCurrentWeatherData] =useState(null);
     const [city, setCity] = useState('Umeå');
     const [loading, setLoading] = useState(false);
+  
+
+   
 
     let date= new Date();
+
+   
+
    // let sunrise= new Date(weatherData.sys.sunrise*1000);
 
     const getCurrentData =async () =>{
@@ -47,6 +67,35 @@ export default function Wheather() {
     useEffect(() => {
         getCurrentData();
     }, []);
+
+
+   
+
+
+    let weatherbkg = "Rain";
+
+      //  weatherbkg = weatherData.weather[0].main;
+
+        if (weatherbkg == "Mist") {
+            document.body.background = mistpic;
+        }
+        else if (weatherbkg == "Rain"){
+            document.body.background = gif;
+        }
+
+        else {
+            document.body.background = rainypic;
+        }
+
+   
+    
+    
+        
+
+   
+    
+
+
 
     return (
         <div className="container">
@@ -86,8 +135,9 @@ export default function Wheather() {
                                 <img src={`http://openweathermap.org/img/w/${weatherData.weather[0].icon}.png`} alt ="weather icon"/>
                             </div>
                         
-                            {/* <h5>{weatherData.weather[0].main}</h5> */}
-                        
+                             <h5>{weatherData.weather[0].main}</h5> 
+
+                           
                         </div>
 
 
@@ -108,7 +158,7 @@ export default function Wheather() {
                         
                         
                            
-                        
+                    
                           
                         
                         
@@ -138,10 +188,14 @@ export default function Wheather() {
                     
                     </div>
                     
+<<<<<<< HEAD
+                    <div className="rightmain">    </div>
+=======
                     <div className="rightmain"> 
                  
 
                     </div>
+>>>>>>> f7baf371a87b99080d01d4c1b749f040ce8150f2
                     
 
                     
