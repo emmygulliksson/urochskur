@@ -1,6 +1,12 @@
 import React, {useState, useEffect} from 'react';
 import getCurrentWeather from "./Data/CurrentWeatherAPI";
+<<<<<<< HEAD
 import './weather.css' 
+=======
+//import forecastWeather from "./Data/forecast5DaysWeather";
+
+import './weather.css'
+>>>>>>> f7baf371a87b99080d01d4c1b749f040ce8150f2
 import logoimage from './img/logouroskur.png'
 import sunriseimage from './img/sunrise.png'
 import sundownimage from './img/sundown.png'
@@ -39,7 +45,21 @@ export default function Wheather() {
             console.log(error.message);
             setLoading(false);
         }
-    }
+
+      /*  const getForecastData =async () =>{
+            try{
+                setLoading(true);
+                const forecastData = await forecastWeather(city);
+                setCurrentWeatherData(forecastData);
+                console.log(forecastData);
+                setLoading(false);
+    
+            }catch(error){
+                console.log(error.message);
+                setLoading(false);
+            }
+    }*/
+}
 
     useEffect(() => {
         getCurrentData();
@@ -158,7 +178,14 @@ export default function Wheather() {
                     
                     </div>
                     
+<<<<<<< HEAD
                     <div className="rightmain">    </div>
+=======
+                    <div className="rightmain"> 
+                 
+
+                    </div>
+>>>>>>> f7baf371a87b99080d01d4c1b749f040ce8150f2
                     
 
                     
