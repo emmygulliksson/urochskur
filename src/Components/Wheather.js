@@ -1,21 +1,28 @@
 import React, {useState, useEffect} from 'react';
 import getCurrentWeather from "./Data/CurrentWeatherAPI";
-<<<<<<< HEAD
+
 import './weather.css' 
-=======
+
 //import forecastWeather from "./Data/forecast5DaysWeather";
 
 import './weather.css'
->>>>>>> f7baf371a87b99080d01d4c1b749f040ce8150f2
+
 import logoimage from './img/logouroskur.png'
 import sunriseimage from './img/sunrise.png'
 import sundownimage from './img/sundown.png'
 
 import rainypic from './img/rainy.jpg'
-
 import mistpic from './img/mist.jpg'
 
-import gif from './img/giffi.gif'
+
+import rainy from './img/raingif.gif'
+import cloudy from './img/gifcloudy.gif'
+import lightning from './img/giflightning.gif'
+import sand from './img/gifsand.gif'
+import snow from './img/gifsnow.gif'
+import sunny from './img/gifsunny.gif'
+
+
 
 
 
@@ -69,7 +76,7 @@ export default function Wheather() {
    
 
 
-    let weatherbkg = "Rain";
+    let weatherbkg = "";
 
       //  weatherbkg = weatherData.weather[0].main;
 
@@ -77,11 +84,13 @@ export default function Wheather() {
             document.body.background = mistpic;
         }
         else if (weatherbkg == "Rain"){
-            document.body.background = gif;
+            document.body.background = rainy;
+            
         }
 
         else {
-            document.body.background = rainypic;
+            document.body.background = sunny;
+            document.body.backgroundSize= "cover";
         }
 
    
@@ -178,14 +187,14 @@ export default function Wheather() {
                     
                     </div>
                     
-<<<<<<< HEAD
+
                     <div className="rightmain">    </div>
-=======
+
                     <div className="rightmain"> 
                  
 
                     </div>
->>>>>>> f7baf371a87b99080d01d4c1b749f040ce8150f2
+
                     
 
                     
