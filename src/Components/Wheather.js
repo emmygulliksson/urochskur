@@ -1,16 +1,30 @@
 import React, {useState, useEffect} from 'react';
 import getCurrentWeather from "./Data/CurrentWeatherAPI";
-import './weather.css'
+import './weather.css' 
 import logoimage from './img/logouroskur.png'
 import sunriseimage from './img/sunrise.png'
 import sundownimage from './img/sundown.png'
+
+import rainypic from './img/rainy.jpg'
+
+import mistpic from './img/mist.jpg'
+
+import gif from './img/giffi.gif'
+
+
 
 export default function Wheather() {
     const [weatherData, setCurrentWeatherData] =useState(null);
     const [city, setCity] = useState('Umeå');
     const [loading, setLoading] = useState(false);
+  
+
+   
 
     let date= new Date();
+
+   
+
    // let sunrise= new Date(weatherData.sys.sunrise*1000);
 
     const getCurrentData =async () =>{
@@ -30,6 +44,35 @@ export default function Wheather() {
     useEffect(() => {
         getCurrentData();
     }, []);
+
+
+   
+
+
+    let weatherbkg = "Rain";
+
+      //  weatherbkg = weatherData.weather[0].main;
+
+        if (weatherbkg == "Mist") {
+            document.body.background = mistpic;
+        }
+        else if (weatherbkg == "Rain"){
+            document.body.background = gif;
+        }
+
+        else {
+            document.body.background = rainypic;
+        }
+
+   
+    
+    
+        
+
+   
+    
+
+
 
     return (
         <div className="container">
@@ -69,8 +112,9 @@ export default function Wheather() {
                                 <img src={`http://openweathermap.org/img/w/${weatherData.weather[0].icon}.png`} alt ="weather icon"/>
                             </div>
                         
-                            {/* <h5>{weatherData.weather[0].main}</h5> */}
-                        
+                             <h5>{weatherData.weather[0].main}</h5> 
+
+                           
                         </div>
 
 
@@ -91,7 +135,7 @@ export default function Wheather() {
                         
                         
                            
-                        
+                    
                           
                         
                         
@@ -114,7 +158,7 @@ export default function Wheather() {
                     
                     </div>
                     
-                    <div className="rightmain"> </div>
+                    <div className="rightmain">    </div>
                     
 
                     
