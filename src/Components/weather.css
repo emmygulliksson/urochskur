@@ -180,3 +180,39 @@
 
  }
 
+.search-form{
+    background-color: rgb(238, 238, 238);
+    border-radius: 30px;
+    padding: 0.2em;
+    padding-left: 1em;
+    padding-right: 1em;
+    box-shadow:1px 1px 3px rgb(63, 58, 58);  
+    display: flex;
+    justify-items: center;
+}
+
+.search-form input{
+ border:none;
+ padding: 0.5em;
+ background-color: transparent;
+}
+
+input:focus, button:focus{
+    border: none;
+    outline-width: 0;
+}
+
+.search-form button{
+    border: none;
+   float: right;
+  
+}
+
+button img{
+  
+    max-height: 2.5vh;
+}
+
+button:hover{
+    cursor:pointer;
+}
