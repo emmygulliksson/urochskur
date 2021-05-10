@@ -6,8 +6,7 @@ import Forecast from './Components/Forecast';
 
 function App() {
   return ( 
-    <Wheater/>,
-    <Forecast/>
+    <Wheater/>
 
 
     );
