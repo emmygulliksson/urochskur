@@ -10,10 +10,12 @@ import './weather.css'
 import logoimage from './img/logouroskur.png'
 import sunriseimage from './img/sunrise.png'
 import sundownimage from './img/sundown.png'
+import search from './img/searchicon.png'
 
 
 import rainypic from './img/rainy.jpg'
 import mistpic from './img/mist.jpg'
+
 
 
 import rainy from './img/raingif.gif'
@@ -79,7 +81,7 @@ export default function Wheather() {
    
 
 
-    let weatherbkg = "Squall";
+    let weatherbkg = "Sand";
 
       //  weatherbkg = weatherData.weather[0].main;
 
@@ -134,7 +136,7 @@ export default function Wheather() {
                 <div className="rightheader"> 
                 <div className="search-form">
                     <input type="text" onChange={(e) => setCity(e.target.value)} placeholder="Sök efter plats"/>
-                    <button type="button" onClick={() => getCurrentData()}>Sök</button>
+                    <button type="button" onClick={() => getCurrentData()}>  <img src={search}></img> </button>
                 </div>
                 </div>
                 
@@ -217,10 +219,7 @@ export default function Wheather() {
 
                     <div className="rightmain">    </div>
 
-                    <div className="rightmain"> 
-                 
-
-                    </div>
+                
 
                     
 
