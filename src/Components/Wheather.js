@@ -1,5 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import getCurrentWeather from "./Data/CurrentWeatherAPI";
+//import forecastWeather from "./Data/forecast5DaysWeather";
+
 import './weather.css'
 import logoimage from './img/logouroskur.png'
 import sunriseimage from './img/sunrise.png'
@@ -25,7 +27,21 @@ export default function Wheather() {
             console.log(error.message);
             setLoading(false);
         }
-    }
+
+      /*  const getForecastData =async () =>{
+            try{
+                setLoading(true);
+                const forecastData = await forecastWeather(city);
+                setCurrentWeatherData(forecastData);
+                console.log(forecastData);
+                setLoading(false);
+    
+            }catch(error){
+                console.log(error.message);
+                setLoading(false);
+            }
+    }*/
+}
 
     useEffect(() => {
         getCurrentData();
@@ -114,7 +130,10 @@ export default function Wheather() {
                     
                     </div>
                     
-                    <div className="rightmain"> </div>
+                    <div className="rightmain"> 
+                 
+
+                    </div>
                     
 
                     
