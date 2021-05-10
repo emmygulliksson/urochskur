@@ -6,13 +6,13 @@ import './weather.css'
 //import forecastWeather from "./Data/forecast5DaysWeather";
 
 import './weather.css'
-
 import logoimage from './img/logouroskur.png'
 import sunriseimage from './img/sunrise.png'
 import sundownimage from './img/sundown.png'
 import search from './img/searchicon.png'
 
 
+<<<<<<< HEAD
 import rainypic from './img/rainy.jpg'
 import mistpic from './img/mist.jpg'
 
@@ -31,6 +31,8 @@ import squall from './img/flying.gif'
 
 
 
+=======
+>>>>>>> 6c84e24a10478df3a7615c6b9c4bf472ba108429
 export default function Wheather() {
     const [weatherData, setCurrentWeatherData] =useState(null);
     const [city, setCity] = useState('Umeå');
@@ -81,11 +83,15 @@ export default function Wheather() {
    
 
 
+<<<<<<< HEAD
     let weatherbkg = "Sand";
+=======
+   /* let weatherbkg = "Squall";
+>>>>>>> 6c84e24a10478df3a7615c6b9c4bf472ba108429
 
-      //  weatherbkg = weatherData.weather[0].main;
+       weatherbkg = weatherData.weather[0].main;
 
-        if (weatherbkg == "Mist" || weatherbkg == "Smoke" || weatherbkg == "Dust" || weatherbkg == "Fog" || weatherbkg == "Ash" ) {
+      if (weatherbkg == "Mist") {
             document.body.background = mistpic;
         }
         else if (weatherbkg == "Rain" || weatherbkg == "Drizzle"){
@@ -112,10 +118,10 @@ export default function Wheather() {
 
 
         else {
-            document.body.background = pretty;
+            document.body.background = rainypic;
         }
 
-   
+   */
     
     
         
@@ -216,11 +222,13 @@ export default function Wheather() {
                     
                     </div>
                     
-
                     <div className="rightmain">    </div>
+<<<<<<< HEAD
 
                 
 
+=======
+>>>>>>> 6c84e24a10478df3a7615c6b9c4bf472ba108429
                     
 
                     
