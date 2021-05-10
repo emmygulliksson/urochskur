@@ -11,6 +11,8 @@ import logoimage from './img/logouroskur.png'
 import sunriseimage from './img/sunrise.png'
 import sundownimage from './img/sundown.png'
 
+<<<<<<< HEAD
+=======
 import rainypic from './img/rainy.jpg'
 import mistpic from './img/mist.jpg'
 
@@ -25,6 +27,7 @@ import sunny from './img/gifsunny.gif'
 
 
 
+>>>>>>> d5b34d8d292b2a5413d739ffd6aa0468c2764271
 
 export default function Wheather() {
     const [weatherData, setCurrentWeatherData] =useState(null);
@@ -179,6 +182,13 @@ export default function Wheather() {
                                 </div>
 
                             </div>
+                            <div className="wind">
+                                <h5> Vinhastighet: {weatherData.wind.speed} m/s</h5>
+                            </div>
+                            <div className="cloud">
+                                <h5> {weatherData.clouds.all}% molnighet</h5>
+                            </div>
+                            
                         
                         </div>
 
