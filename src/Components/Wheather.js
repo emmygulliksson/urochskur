@@ -11,8 +11,7 @@ import logoimage from './img/logouroskur.png'
 import sunriseimage from './img/sunrise.png'
 import sundownimage from './img/sundown.png'
 
-<<<<<<< HEAD
-=======
+
 import rainypic from './img/rainy.jpg'
 import mistpic from './img/mist.jpg'
 
@@ -23,11 +22,12 @@ import lightning from './img/giflightning.gif'
 import sand from './img/gifsand.gif'
 import snow from './img/gifsnow.gif'
 import sunny from './img/gifsunny.gif'
+import glitter from './img/glittergif.gif'
+import pretty from './img/prettygif.gif'
+import squall from './img/flying.gif'
 
 
 
-
->>>>>>> d5b34d8d292b2a5413d739ffd6aa0468c2764271
 
 export default function Wheather() {
     const [weatherData, setCurrentWeatherData] =useState(null);
@@ -79,21 +79,38 @@ export default function Wheather() {
    
 
 
-    let weatherbkg = "";
+    let weatherbkg = "Squall";
 
       //  weatherbkg = weatherData.weather[0].main;
 
-        if (weatherbkg == "Mist") {
+        if (weatherbkg == "Mist" || weatherbkg == "Smoke" || weatherbkg == "Dust" || weatherbkg == "Fog" || weatherbkg == "Ash" ) {
             document.body.background = mistpic;
         }
-        else if (weatherbkg == "Rain"){
-            document.body.background = rainy;
-            
+        else if (weatherbkg == "Rain" || weatherbkg == "Drizzle"){
+            document.body.background = rainy; 
+        }
+        else if (weatherbkg == "Snow"){
+            document.body.background = snow; 
+        }
+        else if (weatherbkg == "Cloudy"){
+            document.body.background = cloudy;
+        }
+        else if (weatherbkg == "Clear"){
+            document.body.background = sunny;
+        }
+        else if (weatherbkg == "Thunderstorm"){
+            document.body.background = lightning;
+        }
+        else if (weatherbkg == "Sand"){
+            document.body.background = sand;
+        }
+        else if (weatherbkg == "Squall"){
+            document.body.background = squall;
         }
 
+
         else {
-            document.body.background = sunny;
-            document.body.backgroundSize= "cover";
+            document.body.background = pretty;
         }
 
    

@@ -71,6 +71,9 @@ body {
     color: #3F3A3A;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+ background-repeat: no-repeat;
+ background-size: cover;
+
  
 }
 
