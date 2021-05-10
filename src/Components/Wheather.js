@@ -7,6 +7,7 @@ import logoimage from './img/logouroskur.png'
 import sunriseimage from './img/sunrise.png'
 import sundownimage from './img/sundown.png'
 
+
 export default function Wheather() {
     const [weatherData, setCurrentWeatherData] =useState(null);
     const [city, setCity] = useState('Umeå');
@@ -122,6 +123,13 @@ export default function Wheather() {
                                 </div>
 
                             </div>
+                            <div className="wind">
+                                <h5> Vinhastighet: {weatherData.wind.speed} m/s</h5>
+                            </div>
+                            <div className="cloud">
+                                <h5> {weatherData.clouds.all}% molnighet</h5>
+                            </div>
+                            
                         
                         </div>
 
