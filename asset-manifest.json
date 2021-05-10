@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/urochskur/static/css/main.e7dd4db8.chunk.css",
-    "main.js": "/urochskur/static/js/main.5d5e45ba.chunk.js",
-    "main.js.map": "/urochskur/static/js/main.5d5e45ba.chunk.js.map",
+    "main.js": "/urochskur/static/js/main.1919a091.chunk.js",
+    "main.js.map": "/urochskur/static/js/main.1919a091.chunk.js.map",
     "runtime-main.js": "/urochskur/static/js/runtime-main.f9072220.js",
     "runtime-main.js.map": "/urochskur/static/js/runtime-main.f9072220.js.map",
-    "static/js/2.5a4519c0.chunk.js": "/urochskur/static/js/2.5a4519c0.chunk.js",
-    "static/js/2.5a4519c0.chunk.js.map": "/urochskur/static/js/2.5a4519c0.chunk.js.map",
+    "static/js/2.28f5c9a6.chunk.js": "/urochskur/static/js/2.28f5c9a6.chunk.js",
+    "static/js/2.28f5c9a6.chunk.js.map": "/urochskur/static/js/2.28f5c9a6.chunk.js.map",
     "static/js/3.5b192697.chunk.js": "/urochskur/static/js/3.5b192697.chunk.js",
     "static/js/3.5b192697.chunk.js.map": "/urochskur/static/js/3.5b192697.chunk.js.map",
     "index.html": "/urochskur/index.html",
     "static/css/main.e7dd4db8.chunk.css.map": "/urochskur/static/css/main.e7dd4db8.chunk.css.map",
-    "static/js/2.5a4519c0.chunk.js.LICENSE.txt": "/urochskur/static/js/2.5a4519c0.chunk.js.LICENSE.txt",
+    "static/js/2.28f5c9a6.chunk.js.LICENSE.txt": "/urochskur/static/js/2.28f5c9a6.chunk.js.LICENSE.txt",
     "static/media/index.css": "/urochskur/static/media/Raleway-SemiBold.8fe2bbfb.ttf",
     "static/media/giffi.e399baa0.gif": "/urochskur/static/media/giffi.e399baa0.gif",
     "static/media/mist.f5c45f35.jpg": "/urochskur/static/media/mist.f5c45f35.jpg",
@@ -19,8 +19,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.f9072220.js",
-    "static/js/2.5a4519c0.chunk.js",
+    "static/js/2.28f5c9a6.chunk.js",
     "static/css/main.e7dd4db8.chunk.css",
-    "static/js/main.5d5e45ba.chunk.js"
+    "static/js/main.1919a091.chunk.js"
   ]
 }
