@@ -56,33 +56,15 @@ export default function Wheather() {
             console.log(error.message);
             setLoading(false);
         }
-
-      /*  const getForecastData =async () =>{
-            try{
-                setLoading(true);
-                const forecastData = await forecastWeather(city);
-                setCurrentWeatherData(forecastData);
-                console.log(forecastData);
-                setLoading(false);
-    
-            }catch(error){
-                console.log(error.message);
-                setLoading(false);
-            }
-    }*/
 }
 
     useEffect(() => {
         getCurrentData();
     }, []);
 
-
-   
-
-
     let weatherbkg = "Sand";
 
-       weatherbkg = weatherData.weather[0].main;
+       //weatherbkg = weatherData.weather[0].main;
 
       if (weatherbkg == "Mist") {
             document.body.background = mistpic;
@@ -159,10 +141,10 @@ export default function Wheather() {
                                 <h1><i className="fa fa-street-view"></i>{weatherData.city.name} | {weatherData.city.country}</h1>
                             </div>
                             <div className="weather-icon">
-                                <img src={`http://openweathermap.org/img/w/${weatherData.list[1].weather.icon}.png`} alt ="weather icon"/>
+                                <img src={`http://openweathermap.org/img/w/${weatherData.list[0].weather.id}.png`} alt ="weather icon"/>
                             </div>
                         
-                             <h5>Kolla här {weatherData.list[0].weather.main}</h5> 
+                             <h5>Kolla här {weatherData.list[0].weather.id}</h5> 
 
                            
                         </div>
