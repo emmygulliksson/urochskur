@@ -5,17 +5,12 @@ import './weather.css'
 
 //import forecastWeather from "./Data/forecast5DaysWeather";
 
-import './weather.css'
 import logoimage from './img/logouroskur.png'
 import sunriseimage from './img/sunrise.png'
 import sundownimage from './img/sundown.png'
 import search from './img/searchicon.png'
 
-
-import rainypic from './img/rainy.jpg'
 import mistpic from './img/mist.jpg'
-
-
 
 import rainy from './img/raingif.gif'
 import cloudy from './img/gifcloudy.gif'
@@ -36,8 +31,7 @@ export default function Wheather() {
     const [loading, setLoading] = useState(false);
   
 
-   
-
+ 
     let date= new Date();
 
    
@@ -51,19 +45,15 @@ export default function Wheather() {
             setCurrentWeatherData(currentData);
             console.log(currentData);
             setLoading(false);
-
+            
+           
         }catch(error){
             console.log(error.message);
             setLoading(false);
         }
 }
 
-    useEffect(() => {
-        getCurrentData();
-    }, []);
-
-    let weatherbkg = "Sand";
-
+        let weatherbkg="clear";
        //weatherbkg = weatherData.list[0].weather[0].main;
 
       if (weatherbkg == "Mist") {
@@ -91,11 +81,52 @@ export default function Wheather() {
             document.body.background = squall;
         }
 
+    useEffect(() => {
+       
+        getCurrentData();
+     
+    });
 
-        else {
-            document.body.background = rainypic;
-        }
+ 
 
+     
+   /*    const getbkg =  async () =>{
+    
+        let weatherbkg = "Sand";
+        
+        //weatherbkg = weatherData.list[0].weather[0].main;
+        if (weatherbkg === "Mist" || weatherbkg === "Smoke" || weatherbkg === "Haze" || weatherbkg === "Dust" || weatherbkg === "Fog" || weatherbkg === "Ash") {
+                document.body.background = mistpic;
+            }
+            else if (weatherbkg === "Rain" || weatherbkg === "Drizzle"){
+                document.body.background = rainy; 
+            }
+            else if (weatherbkg === "Snow"){
+                document.body.background = snow; 
+            }
+            else if (weatherbkg === "Clouds"){
+                document.body.background = cloudy;
+            }
+            else if (weatherbkg === "Clear"){
+                document.body.background = sunny;
+            }
+            else if (weatherbkg === "Thunderstorm"){
+                document.body.background = lightning;
+            }
+            else if (weatherbkg === "Sand"){
+                document.body.background = sand;
+            }
+            else if (weatherbkg === "Squall"){
+                document.body.background = squall;
+            }
+            else if (weatherbkg === "Tornado"){
+                document.body.background = squall;
+            }
+
+            else {
+                document.body.background = pretty;
+            }
+    }*/
    
     
     
