@@ -9,7 +9,7 @@ const delay = interval => new Promise(resolve => setTimeout(resolve, interval));
 
 
 const sendMessage = async (cityName)=>{
-    await delay(100000);
+    await delay(10000);
     
     return axios.get(baseURL + `q=${cityName}&appid=${apiKey}`);;
   };

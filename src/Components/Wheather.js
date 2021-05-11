@@ -7,7 +7,6 @@ import logoimage from './img/logouroskur.png'
 import sunriseimage from './img/sunrise.png'
 import sundownimage from './img/sundown.png'
 import search from './img/searchicon.png'
-import rainypic from './img/rainy.jpg'
 import mistpic from './img/mist.jpg'
 import rainy from './img/raingif.gif'
 import cloudy from './img/gifcloudy.gif'
@@ -15,9 +14,12 @@ import lightning from './img/giflightning.gif'
 import sand from './img/gifsand.gif'
 import snow from './img/gifsnow.gif'
 import sunny from './img/gifsunny.gif'
-import glitter from './img/glittergif.gif'
 import pretty from './img/prettygif.gif'
 import squall from './img/flying.gif'
+
+
+
+
 export default function Wheather() {
     const [weatherData, setCurrentWeatherData] =useState(null);
     const [city, setCity] = useState('Umeå');
@@ -26,6 +28,8 @@ export default function Wheather() {
    
     let date= new Date();
    
+
+
    // let sunrise= new Date(weatherData.sys.sunrise*1000);
     const getCurrentData =async () =>{
         try{
@@ -41,42 +45,47 @@ export default function Wheather() {
 }
     useEffect(() => {
         getCurrentData();
+        getbkg(weatherData.list[0].weather[0].main)
     }, []);
-    let weatherbkg = "Sand";
-       //weatherbkg = weatherData.weather[0].main;
-      if (weatherbkg == "Mist") {
-            document.body.background = mistpic;
-        }
-        else if (weatherbkg == "Rain" || weatherbkg == "Drizzle"){
-            document.body.background = rainy; 
-        }
-        else if (weatherbkg == "Snow"){
-            document.body.background = snow; 
-        }
-        else if (weatherbkg == "Cloudy"){
-            document.body.background = cloudy;
-        }
-        else if (weatherbkg == "Clear"){
-            document.body.background = sunny;
-        }
-        else if (weatherbkg == "Thunderstorm"){
-            document.body.background = lightning;
-        }
-        else if (weatherbkg == "Sand"){
-            document.body.background = sand;
-        }
-        else if (weatherbkg == "Squall"){
-            document.body.background = squall;
-        }
-        else {
-            document.body.background = rainypic;
-        }
-   
-    
-    
+
+    let getbkg =  async (weatherbkg) =>{
+
+        //weatherbkg = weatherData.list[0].weather[0].main;
+        if (weatherbkg === "Mist" || weatherbkg === "Smoke" || weatherbkg === "Haze" || weatherbkg === "Dust" || weatherbkg === "Fog" || weatherbkg === "Ash") {
+                document.body.background = mistpic;
+            }
+            else if (weatherbkg === "Rain" || weatherbkg === "Drizzle"){
+                document.body.background = rainy; 
+            }
+            else if (weatherbkg === "Snow"){
+                document.body.background = snow; 
+            }
+            else if (weatherbkg === "Clouds"){
+                document.body.background = cloudy;
+            }
+            else if (weatherbkg === "Clear"){
+                document.body.background = sunny;
+            }
+            else if (weatherbkg === "Thunderstorm"){
+                document.body.background = lightning;
+            }
+            else if (weatherbkg === "Sand"){
+                document.body.background = sand;
+            }
+            else if (weatherbkg === "Squall"){
+                document.body.background = squall;
+            }
+            else if (weatherbkg === "Tornado"){
+                document.body.background = squall;
+            }
+
+            else {
+                document.body.background = pretty;
+            }
+    }
         
    
-    
+  
     return (
         <div className="container">
             <div className="header">
@@ -111,6 +120,8 @@ export default function Wheather() {
 
                               <h5>Kolla här {weatherData.list[0].weather[0].description}</h5> 
                               <h5>{new Date(weatherData.list[0].dt*1000).toLocaleDateString("sv-SE")}</h5> 
+                             
+                             
 
 
                          </div>
@@ -156,7 +167,7 @@ export default function Wheather() {
                             
                         
                         </div>
-                        
+                       
                            
                     
                      </div>
@@ -180,7 +191,9 @@ export default function Wheather() {
                     
                 </div>
             ) : null }
-          
+           
         </div>
+        
     );
+   
 }
