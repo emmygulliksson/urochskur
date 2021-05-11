@@ -64,7 +64,7 @@ export default function Wheather() {
 
     let weatherbkg = "Sand";
 
-       //weatherbkg = weatherData.weather[0].main;
+       weatherbkg = weatherData.list[0].weather[0].main;
 
       if (weatherbkg == "Mist") {
             document.body.background = mistpic;
@@ -75,7 +75,7 @@ export default function Wheather() {
         else if (weatherbkg == "Snow"){
             document.body.background = snow; 
         }
-        else if (weatherbkg == "Cloudy"){
+        else if (weatherbkg == "Clouds"){
             document.body.background = cloudy;
         }
         else if (weatherbkg == "Clear"){
@@ -144,7 +144,7 @@ export default function Wheather() {
                                 <img src={`http://openweathermap.org/img/w/${weatherData.list[0].weather[0].icon}.png`} alt ="weather icon"/>
                             </div>
                         
-                             <h5>Kolla här {weatherData.list[0].weather[0].description}</h5> 
+                             <h5>Kolla här {weatherData.list[0].weather[0].main}</h5> 
                              <h5>{new Date(weatherData.list[0].dt*1000).toLocaleDateString("sv-SE")}</h5> 
 
                            
