@@ -64,7 +64,7 @@ export default function Wheather() {
 
     let weatherbkg = "Sand";
 
-       weatherbkg = weatherData.list[0].weather[0].main;
+       //weatherbkg = weatherData.list[0].weather[0].main;
 
       if (weatherbkg == "Mist") {
             document.body.background = mistpic;
