@@ -54,44 +54,19 @@ export default function Wheather() {
         }
 }
 
-        let weatherbkg="clear";
-       //weatherbkg = weatherData.list[0].weather[0].main;
 
-      if (weatherbkg == "Mist") {
-            document.body.background = mistpic;
-        }
-        else if (weatherbkg == "Rain" || weatherbkg == "Drizzle"){
-            document.body.background = rainy; 
-        }
-        else if (weatherbkg == "Snow"){
-            document.body.background = snow; 
-        }
-        else if (weatherbkg == "Clouds"){
-            document.body.background = cloudy;
-        }
-        else if (weatherbkg == "Clear"){
-            document.body.background = sunny;
-        }
-        else if (weatherbkg == "Thunderstorm"){
-            document.body.background = lightning;
-        }
-        else if (weatherbkg == "Sand"){
-            document.body.background = sand;
-        }
-        else if (weatherbkg == "Squall"){
-            document.body.background = squall;
-        }
 
     useEffect(() => {
         
         getCurrentData();
+        getbkg();
      
     });
 
  
 
      
-   /*    const getbkg =  async () =>{
+    const getbkg =  async () =>{
     
         let weatherbkg = "Sand";
         
@@ -127,7 +102,7 @@ export default function Wheather() {
             else {
                 document.body.background = pretty;
             }
-    }*/
+    }
    
     
     
