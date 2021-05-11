@@ -2,7 +2,7 @@ import react from 'react';
 import axios from 'axios';
 
 const baseURL= 'http://api.openweathermap.org/data/2.5/forecast?';
-const apiKey='3434a41e4751b5969309b9363a302a9b';
+const apiKey='504fa11204b74d4c000deaffa7c6ab80';
 
 
 const delay = interval => new Promise(resolve => setTimeout(resolve, interval));
