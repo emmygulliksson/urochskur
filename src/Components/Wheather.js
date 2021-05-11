@@ -141,10 +141,10 @@ export default function Wheather() {
                                 <h1><i className="fa fa-street-view"></i>{weatherData.city.name} | {weatherData.city.country}</h1>
                             </div>
                             <div className="weather-icon">
-                                <img src={`http://openweathermap.org/img/w/${weatherData.list[0].weather.id}.png`} alt ="weather icon"/>
+                                <img src={`http://openweathermap.org/img/w/${weatherData.list[0].weather[0].icon}.png`} alt ="weather icon"/>
                             </div>
                         
-                             <h5>Kolla här {weatherData.list[0].weather.id}</h5> 
+                             <h5>Kolla här {weatherData.list[0].weather[0].description}</h5> 
 
                            
                         </div>
@@ -198,7 +198,9 @@ export default function Wheather() {
                     </div>
                     
                     <div className="rightmain"> 
+                    <img src={`http://openweathermap.org/img/w/${weatherData.list[9].weather[0].icon}.png`} alt ="weather icon"/>
                     <h5> SAMMA TID IMORGON: {parseFloat(weatherData.list[9].main.temp -273.15).toFixed(1)}&deg;C</h5>
+                    <img src={`http://openweathermap.org/img/w/${weatherData.list[19].weather[0].icon}.png`} alt ="weather icon"/>
                     <h5> SAMMA TID ÖVERMORGON: {parseFloat(weatherData.list[19].main.temp -273.15).toFixed(1)}&deg;C</h5>
                     </div>
                     
