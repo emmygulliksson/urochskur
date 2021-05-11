@@ -29,7 +29,7 @@ export default function Wheather() {
     const [weatherData, setCurrentWeatherData] =useState(null);
     const [city, setCity] = useState('Umeå');
     const [loading, setLoading] = useState(false);
-  
+    
 
  
     let date= new Date();
@@ -41,6 +41,7 @@ export default function Wheather() {
     const getCurrentData =async () =>{
         try{
             setLoading(true);
+            
             const currentData = await getCurrentWeather(city);
             setCurrentWeatherData(currentData);
             console.log(currentData);
@@ -56,7 +57,7 @@ export default function Wheather() {
 
 
     useEffect(() => {
-       
+        
         getCurrentData();
         getbkg();
      
@@ -145,13 +146,14 @@ export default function Wheather() {
                             <div className="location">
 
                                 <h1><i className="fa fa-street-view"></i>{weatherData.city.name} | {weatherData.city.country}</h1>
+                                <h5>{new Date(weatherData.list[0].dt*1000).toLocaleDateString("sv-SE")}</h5> 
                             </div>
                             <div className="weather-icon">
                                 <img src={`http://openweathermap.org/img/w/${weatherData.list[0].weather[0].icon}.png`} alt ="weather icon"/>
                             </div>
                         
-                             <h5>Kolla här {weatherData.list[0].weather[0].main}</h5> 
-                             <h5>{new Date(weatherData.list[0].dt*1000).toLocaleDateString("sv-SE")}</h5> 
+                             {/* <h5>Kolla här {weatherData.list[0].weather[0].main}</h5>  */}
+                           
 
                            
                         </div>
