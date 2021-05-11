@@ -145,6 +145,7 @@ export default function Wheather() {
                             </div>
                         
                              <h5>Kolla här {weatherData.list[0].weather[0].description}</h5> 
+                             <h5>{new Date(weatherData.list[0].dt*1000).toLocaleDateString("sv-SE")}</h5> 
 
                            
                         </div>
@@ -175,8 +176,8 @@ export default function Wheather() {
 
                         <div className="bottom"> 
                             <div className="sun">
-                                <div className="sunrise">  <img src={sunriseimage} className="logo"></img> <br></br> <h4>{new Date(weatherData.city.sunrise*1000).toLocaleTimeString("en-GB")}</h4> </div>
-                                <div className="sundown"> <img src={sundownimage} className="logo"></img> <br></br> <h4>{new Date(weatherData.city.sunset*1000).toLocaleTimeString("en-GB")}</h4> </div>
+                                <div className="sunrise">  <img src={sunriseimage} className="logo"></img> <br></br> <h4>{new Date(weatherData.city.sunrise*1000).toLocaleTimeString("sv-SE")}</h4> </div>
+                                <div className="sundown"> <img src={sundownimage} className="logo"></img> <br></br> <h4>{new Date(weatherData.city.sunset*1000).toLocaleTimeString("sv-SE")}</h4> </div>
                                 <div className="temprature-range">
                                 <h5> Luftfuktighet: {weatherData.list[0].main.humidity}%</h5>
                                 </div>
@@ -198,10 +199,18 @@ export default function Wheather() {
                     </div>
                     
                     <div className="rightmain"> 
-                    <img src={`http://openweathermap.org/img/w/${weatherData.list[9].weather[0].icon}.png`} alt ="weather icon"/>
-                    <h5> SAMMA TID IMORGON: {parseFloat(weatherData.list[9].main.temp -273.15).toFixed(1)}&deg;C</h5>
-                    <img src={`http://openweathermap.org/img/w/${weatherData.list[19].weather[0].icon}.png`} alt ="weather icon"/>
-                    <h5> SAMMA TID ÖVERMORGON: {parseFloat(weatherData.list[19].main.temp -273.15).toFixed(1)}&deg;C</h5>
+                    <h5>{new Date(weatherData.list[8].dt*1000).toLocaleDateString("sv-SE")}</h5> 
+                    <img src={`http://openweathermap.org/img/w/${weatherData.list[8].weather[0].icon}.png`} alt ="weather icon"/>
+                    <h5>{parseFloat(weatherData.list[8].main.temp -273.15).toFixed(1)}&deg;C</h5>
+                    <h5>{new Date(weatherData.list[16].dt*1000).toLocaleDateString("sv-SE")}</h5> 
+                    <img src={`http://openweathermap.org/img/w/${weatherData.list[16].weather[0].icon}.png`} alt ="weather icon"/>
+                    <h5>{parseFloat(weatherData.list[16].main.temp -273.15).toFixed(1)}&deg;C</h5>
+                    <h5>{new Date(weatherData.list[24].dt*1000).toLocaleDateString("sv-SE")}</h5> 
+                    <img src={`http://openweathermap.org/img/w/${weatherData.list[24].weather[0].icon}.png`} alt ="weather icon"/>
+                    <h5>{parseFloat(weatherData.list[24].main.temp -273.15).toFixed(1)}&deg;C</h5>
+                    <h5>{new Date(weatherData.list[32].dt*1000).toLocaleDateString("sv-SE")}</h5> 
+                    <img src={`http://openweathermap.org/img/w/${weatherData.list[32].weather[0].icon}.png`} alt ="weather icon"/>
+                    <h5>{parseFloat(weatherData.list[32].main.temp -273.15).toFixed(1)}&deg;C</h5>
                     </div>
                     
 
