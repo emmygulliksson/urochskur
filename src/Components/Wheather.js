@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import getCurrentWeather from "./Data/forecast5DaysWeather";
+import getWeatherData from "./Data/forecast5DaysWeather";
 import './weather.css' 
 //import forecastWeather from "./Data/forecast5DaysWeather";
 import './weather.css'
@@ -21,12 +21,12 @@ import squall from './img/flying.gif'
 
 
 export default function Wheather() {
-    const [weatherData, setCurrentWeatherData] =useState(null);
+    const [weatherData, setWeatherData] =useState(null);
     const [city, setCity] = useState('Umeå');
     const [loading, setLoading] = useState(false);
   
    
-    let date= new Date();
+    const date= new Date();
    
 
 
@@ -34,18 +34,28 @@ export default function Wheather() {
     const getCurrentData =async () =>{
         try{
             setLoading(true);
-            const currentData = await getCurrentWeather(city);
-            setCurrentWeatherData(currentData);
-            console.log(currentData);
+            const currentData = await getWeatherData(city);
+            setWeatherData(currentData);
+            //console.log(currentData);
             setLoading(false);
+            console.log("i getcurrentdata")
+            console.log(currentData)
+            getbkg(currentData.list[0].weather[0].main);
+            console.log(currentData.list[0].weather[0].main)
+         
         }catch(error){
             console.log(error.message);
             setLoading(false);
+           
         }
 }
     useEffect(() => {
         getCurrentData();
-        getbkg(weatherData.list[0].weather[0].main)
+        console.log("hi");
+        console.log(getCurrentData())
+     
+    
+       
     }, []);
 
     let getbkg =  async (weatherbkg) =>{
@@ -78,13 +88,12 @@ export default function Wheather() {
             else if (weatherbkg === "Tornado"){
                 document.body.background = squall;
             }
-
             else {
                 document.body.background = pretty;
             }
     }
-        
-   
+
+
   
     return (
         <div className="container">
@@ -94,7 +103,11 @@ export default function Wheather() {
                 <div className="mainheader"> <img src={logoimage} className="logo"></img></div>
                 <div className="rightheader"> 
                 <div className="search-form">
-                    <input type="text" onChange={(e) => setCity(e.target.value)} placeholder="Sök efter plats"/>
+                    <input type="text" onChange={(e) => setCity(e.target.value)} placeholder="Sök efter plats" onKeyPress={event => {
+                if (event.key === 'Enter') {
+                  getCurrentData()
+                }
+              }} />
                     <button type="button" onClick={() => getCurrentData()}>  <img src={search}></img> </button>
                 </div>
                 </div>
@@ -113,13 +126,14 @@ export default function Wheather() {
                             <h5>Live väderprognos</h5>
                             <div className="location">
                                 <h1><i className="fa fa-street-view"></i>{weatherData.city.name} | {weatherData.city.country}</h1>
+                                <h5>{new Date(weatherData.list[0].dt*1000).toLocaleDateString("sv-SE")}</h5> 
                             </div>
                             <div className="weather-icon">
                                 <img src={`http://openweathermap.org/img/w/${weatherData.list[0].weather[0].icon}.png`} alt ="weather icon"/>
                              </div>
 
-                              <h5>Kolla här {weatherData.list[0].weather[0].description}</h5> 
-                              <h5>{new Date(weatherData.list[0].dt*1000).toLocaleDateString("sv-SE")}</h5> 
+                            {/*   <h5>Kolla här {weatherData.list[0].weather[0].description}</h5>  */}
+                             
                              
                              
 
@@ -149,23 +163,36 @@ export default function Wheather() {
                         </div>
 
                          <div className="bottom"> 
-                             <div className="sun">
-                                 <div className="sunrise">  <img src={sunriseimage} className="logo"></img> <br></br> <h4>{new Date(weatherData.city.sunrise*1000).toLocaleTimeString("en-GB")}</h4> </div>
-                                 <div className="sundown"> <img src={sundownimage} className="logo"></img> <br></br> <h4>{new Date(weatherData.city.sunset*1000).toLocaleTimeString("en-GB")}</h4> </div>
-                                 <div className="sunrise">  <img src={sunriseimage} className="logo"></img> <br></br> <h4>{new Date(weatherData.city.sunrise*1000).toLocaleTimeString("sv-SE")}</h4> </div>
-                                 <div className="sundown"> <img src={sundownimage} className="logo"></img> <br></br> <h4>{new Date(weatherData.city.sunset*1000).toLocaleTimeString("sv-SE")}</h4> </div>
-                                 <div className="temprature-range">
-                                 <h5> Luftfuktighet: {weatherData.list[0].main.humidity}%</h5>
-                                 </div>
-                            </div>
-                            <div className="wind">
-                                <h5> Vinhastighet: {weatherData.list[0].wind.speed} m/s</h5>
-                            </div>
-                            <div className="cloud">
-                                <h5> {weatherData.list[0].clouds.all}% molnighet</h5>
-                            </div>
-                            
+
+                         <div className="bottom1">
+                            <h5>{new Date(weatherData.list[8].dt*1000).toLocaleDateString("sv-SE")}</h5> 
+                            <img src={`http://openweathermap.org/img/w/${weatherData.list[8].weather[0].icon}.png`} alt ="weather icon"/>
+                            <h5>{parseFloat(weatherData.list[8].main.temp -273.15).toFixed(1)}&deg;C</h5>
+                         </div>
+                         <div className="bottom2">
+                            <h5>{new Date(weatherData.list[16].dt*1000).toLocaleDateString("sv-SE")}</h5> 
+                            <img src={`http://openweathermap.org/img/w/${weatherData.list[16].weather[0].icon}.png`} alt ="weather icon"/>
+                            <h5>{parseFloat(weatherData.list[16].main.temp -273.15).toFixed(1)}&deg;C</h5>
+                         </div>
+                         <div className="bottom3">
+                            <h5>{new Date(weatherData.list[24].dt*1000).toLocaleDateString("sv-SE")}</h5> 
+                            <img src={`http://openweathermap.org/img/w/${weatherData.list[24].weather[0].icon}.png`} alt ="weather icon"/>
+                            <h5>{parseFloat(weatherData.list[24].main.temp -273.15).toFixed(1)}&deg;C</h5>
+                         </div>
+                         <div className="bottom4">
+                            <h5>{new Date(weatherData.list[32].dt*1000).toLocaleDateString("sv-SE")}</h5> 
+                            <img src={`http://openweathermap.org/img/w/${weatherData.list[32].weather[0].icon}.png`} alt ="weather icon"/>
+                            <h5>{parseFloat(weatherData.list[32].main.temp -273.15).toFixed(1)}&deg;C</h5>
+
+                         </div>
+             
+                   
                         
+                       
+                        
+                    
+                                
+                            
                         </div>
                        
                            
@@ -173,18 +200,23 @@ export default function Wheather() {
                      </div>
 
                      <div className="rightmain"> 
-                     <h5>{new Date(weatherData.list[8].dt*1000).toLocaleDateString("sv-SE")}</h5> 
-                     <img src={`http://openweathermap.org/img/w/${weatherData.list[8].weather[0].icon}.png`} alt ="weather icon"/>
-                     <h5>{parseFloat(weatherData.list[8].main.temp -273.15).toFixed(1)}&deg;C</h5>
-                     <h5>{new Date(weatherData.list[16].dt*1000).toLocaleDateString("sv-SE")}</h5> 
-                     <img src={`http://openweathermap.org/img/w/${weatherData.list[16].weather[0].icon}.png`} alt ="weather icon"/>
-                     <h5>{parseFloat(weatherData.list[16].main.temp -273.15).toFixed(1)}&deg;C</h5>
-                     <h5>{new Date(weatherData.list[24].dt*1000).toLocaleDateString("sv-SE")}</h5> 
-                     <img src={`http://openweathermap.org/img/w/${weatherData.list[24].weather[0].icon}.png`} alt ="weather icon"/>
-                     <h5>{parseFloat(weatherData.list[24].main.temp -273.15).toFixed(1)}&deg;C</h5>
-                     <h5>{new Date(weatherData.list[32].dt*1000).toLocaleDateString("sv-SE")}</h5> 
-                     <img src={`http://openweathermap.org/img/w/${weatherData.list[32].weather[0].icon}.png`} alt ="weather icon"/>
-                     <h5>{parseFloat(weatherData.list[32].main.temp -273.15).toFixed(1)}&deg;C</h5>
+                             <div className="sun">
+                                 <div className="sunrise">  <img src={sunriseimage} className="logo"></img> <br></br> <h4>{new Date(weatherData.city.sunrise*1000).toLocaleTimeString("en-GB")}</h4> </div>
+                                 <div className="sundown"> <img src={sundownimage} className="logo"></img> <br></br> <h4>{new Date(weatherData.city.sunset*1000).toLocaleTimeString("en-GB")}</h4> </div>
+                                 <div className="sunrise">  <img src={sunriseimage} className="logo"></img> <br></br> <h4>{new Date(weatherData.city.sunrise*1000).toLocaleTimeString("sv-SE")}</h4> </div>
+                                 <div className="sundown"> <img src={sundownimage} className="logo"></img> <br></br> <h4>{new Date(weatherData.city.sunset*1000).toLocaleTimeString("sv-SE")}</h4> </div>
+                                 
+                            </div>
+                            <div className="humidity">
+                                 <h5> Luftfuktighet: {weatherData.list[0].main.humidity}%</h5>
+                                 </div>
+                            <div className="wind">
+                                <h5> Vindhastighet: {weatherData.list[0].wind.speed} m/s</h5>
+                            </div>
+                            <div className="cloud">
+                                <h5> {weatherData.list[0].clouds.all}% molnighet</h5>
+                            </div>
+
                      </div>
 
 
@@ -197,3 +229,5 @@ export default function Wheather() {
     );
    
 }
+
+

@@ -8,12 +8,13 @@
       "main";
       width: 100%;
       height: 100%;
+      z-index: -1;
     
   }
 
   .header{
       grid-area: header;
-      background-color: #8C8F63;
+      padding-top: 0.5em;
       
       display: grid;
       grid-template-columns: 1fr 3fr 1fr;
@@ -61,6 +62,7 @@
         height: 100%;
       align-items: center;
       justify-items: center;
+   
   }
 
 
@@ -70,42 +72,144 @@
 
   .leftmain{
       grid-area: left;
+    
+      height: 85%;
+      width: 20vw;
+      border-radius: 30px;
   }
 
   .rightmain{
       grid-area: right;
+
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr 1fr 1fr 1fr;
+      gap: 0px 0px;
+      grid-template-areas:
+        "sun"
+        "humidity"
+        "wind"
+        "cloud";
+        align-items: center;
+        justify-items: center;
+        background-color: rgb(210, 210, 210, 0.8);
+        height: 60%;
+        width: 20vw;
+        border-radius: 30px;
+       
   }
+  .humidity{
+    grid-area: humidity;
+    }
+
+    .wind{
+        grid-area: wind;
+    }
+
+    .cloud{
+        grid-area: cloud;
+    }
+
+  .sun{
+      grid-area: sun;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr ;
+    gap: 0px 0px;
+    grid-template-areas:
+      "rise"
+      "down"
+      "humidity";
+      padding-left: 3em;
+      padding-right: 3em;
+
+  }
+
+ 
+
+  .sunrise img, .sundown img{
+      height: 7vh;
+  }
+
+  .sunrise{
+      grid-area: rise;
+  }
+
+  .sundown{
+      grid-area: down;
+  }
+
+
+  
 
   .middlemain{
       grid-area: middle;
-      background-color: #EBEBEB;
-      border-radius: 30px;
-      width: 60%;
-      height: 90%;
+      
      
+      width: 60%;
+      height: 80%;
       align-content: center;
       justify-content: center;
       text-align: center;
 
-
       display: grid;
       grid-template-columns: 1fr;
-      grid-template-rows: 2fr 1.2fr ;
+      grid-template-rows: 2fr 1fr ;
       gap: 0px 0px;
       grid-template-areas:
         "top"
         "bottom";
-     
+       
   }
 
   .bottom{
     grid-area: bottom;
-    background-color: #E4E4E4;
+    background-color: rgb(228, 228, 228, 0.8);
     width: 100%;
     height:100%;
     border-radius: 0px 0px 30px 30px;
-    padding: 2em;
+    
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 0px 0px;
+    grid-template-areas:
+      "b1 b2 b3 b4";
+      align-items: center;
+      justify-items: center;
 }
+
+.bottom1{
+    grid-area: b1;
+}
+
+.bottom2{
+    grid-area: b2;
+}
+
+.bottom3{
+    grid-area: b3;
+}
+
+.bottom4{
+    grid-area: b4;
+}
+
+.bottom1, .bottom2, .bottom3{
+    border-right: 2px solid rgb(235, 235, 235, 0.2);
+}
+
+.bottom1, .bottom2, .bottom3, .bottom4{
+    width: 100%; 
+    height: 100%;
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    padding-top: 2em;
+    padding-bottom: 2em;
+}
+
+
 
 .top{
     grid-area: top;
@@ -117,6 +221,10 @@
     grid-template-areas:
       "temp temp temp"
       "min actual max";
+      width: 100%;
+      height: 100%;
+      background-color: rgb(235, 235, 235, 0.8);
+      border-radius: 30px 30px 0px 0px;
 }
 
 .temp{
@@ -147,30 +255,7 @@
 }
 
 
-  .sun{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 2fr 1fr ;
-    gap: 0px 0px;
-    grid-template-areas:
-      "rise  down"
-      "humidity humidity";
-      padding-left: 3em;
-      padding-right: 3em;
-
-  }
-
-  .sunrise img, .sundown img{
-      height: 7vh;
-  }
-
-  .sunrise{
-      grid-area: rise;
-  }
-
-  .sundown{
-      grid-area: down;
-  }
+ 
 
  .temprature-range{
      grid-area: humidity;
