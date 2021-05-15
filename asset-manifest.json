@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/urochskur/static/css/main.69e6ebf8.chunk.css",
-    "main.js": "/urochskur/static/js/main.fee3c7a1.chunk.js",
-    "main.js.map": "/urochskur/static/js/main.fee3c7a1.chunk.js.map",
-    "runtime-main.js": "/urochskur/static/js/runtime-main.459b5d48.js",
-    "runtime-main.js.map": "/urochskur/static/js/runtime-main.459b5d48.js.map",
-    "static/js/2.603ec79e.chunk.js": "/urochskur/static/js/2.603ec79e.chunk.js",
-    "static/js/2.603ec79e.chunk.js.map": "/urochskur/static/js/2.603ec79e.chunk.js.map",
-    "static/js/3.47991644.chunk.js": "/urochskur/static/js/3.47991644.chunk.js",
-    "static/js/3.47991644.chunk.js.map": "/urochskur/static/js/3.47991644.chunk.js.map",
+    "main.js": "/urochskur/static/js/main.3fc94346.chunk.js",
+    "main.js.map": "/urochskur/static/js/main.3fc94346.chunk.js.map",
+    "runtime-main.js": "/urochskur/static/js/runtime-main.0fbcb609.js",
+    "runtime-main.js.map": "/urochskur/static/js/runtime-main.0fbcb609.js.map",
+    "static/js/2.095d8c1e.chunk.js": "/urochskur/static/js/2.095d8c1e.chunk.js",
+    "static/js/2.095d8c1e.chunk.js.map": "/urochskur/static/js/2.095d8c1e.chunk.js.map",
+    "static/js/3.c06a65b3.chunk.js": "/urochskur/static/js/3.c06a65b3.chunk.js",
+    "static/js/3.c06a65b3.chunk.js.map": "/urochskur/static/js/3.c06a65b3.chunk.js.map",
     "index.html": "/urochskur/index.html",
     "static/css/main.69e6ebf8.chunk.css.map": "/urochskur/static/css/main.69e6ebf8.chunk.css.map",
-    "static/js/2.603ec79e.chunk.js.LICENSE.txt": "/urochskur/static/js/2.603ec79e.chunk.js.LICENSE.txt",
+    "static/js/2.095d8c1e.chunk.js.LICENSE.txt": "/urochskur/static/js/2.095d8c1e.chunk.js.LICENSE.txt",
     "static/media/index.css": "/urochskur/static/media/Raleway-SemiBold.8fe2bbfb.ttf",
     "static/media/flying.f046875c.gif": "/urochskur/static/media/flying.f046875c.gif",
     "static/media/gifcloudy.9a09a375.gif": "/urochskur/static/media/gifcloudy.9a09a375.gif",
@@ -25,9 +25,9 @@
     "static/media/searchicon.0d545c48.png": "/urochskur/static/media/searchicon.0d545c48.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.459b5d48.js",
-    "static/js/2.603ec79e.chunk.js",
+    "static/js/runtime-main.0fbcb609.js",
+    "static/js/2.095d8c1e.chunk.js",
     "static/css/main.69e6ebf8.chunk.css",
-    "static/js/main.fee3c7a1.chunk.js"
+    "static/js/main.3fc94346.chunk.js"
   ]
 }
