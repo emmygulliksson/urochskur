@@ -54,11 +54,11 @@
   .main-container{
       grid-area: main;
       display: grid;
-      grid-template-columns: 1fr 8fr 1fr;
+      grid-template-columns: 1fr 6fr 1fr;
       grid-template-rows: 1fr  ;
       gap: 0px 0px;
       grid-template-areas:
-        "left middle right";
+        ". middle .";
         width: 100%;
         height: 100%;
       align-items: center;
@@ -70,50 +70,7 @@
       height: 15vh;
   }
 
-  .leftmain{
-      grid-area: left;
-    
-      max-height: 85%;
-      width: 20vw;
-      border-radius: 30px;
-
-      display: grid;
-      grid-template-columns: 1fr;
-      grid-template-rows: 1fr 1fr 1fr 1fr;
-      gap: 0px 0px;
-      grid-template-areas:
-        "left1"
-        "left2"
-        "left3"
-        "left4";
-        align-items: center;
-        justify-items: center;
-       
-  }
-
-  .left1{
-      grid-area: left1;
-  }
-  .left2{
-    grid-area: left2;
-    }
-    .left3{
-        grid-area: left3;
-    }
-    .left4{
-        grid-area: left4;
-    }
-
-    .left1, .left2, .left3, .left4{
-        width: 100%; 
-    height: 100%;
-    display: grid;
-    align-items: center;
-    justify-items: center;
-    padding-top: 2em;
-    padding-bottom: 2em;
-    }
-
+ 
     
 
   .rightmain{
@@ -197,7 +154,7 @@
     
   }
 
-  .center .hours{
+ #hours{
       height: 100%;
       font-size: calc(0.5em + 0.5vw);
       border: none;
@@ -208,7 +165,7 @@
       z-index: 2;
 }
 
-.center .days{
+ #days{
     height: 100%;
     font-size: calc(0.5em + 0.5vw);
     border: none;
@@ -221,7 +178,7 @@
 }
 
 
-  .bottom{
+  #bottom{
     grid-area: bottom;
     background-color: #B9A897;
     width: 100%;
@@ -238,47 +195,50 @@
       justify-items: center;
 }
 
-.bottom img{
+#bottom img{
     height: 3.5vw;
+   
 }
 
-.bottom1{
+#bottom1{
     grid-area: b1;
+   
 }
 
-.bottom2{
+#bottom2{
     grid-area: b2;
 }
 
-.bottom3{
+#bottom3{
     grid-area: b3;
 }
 
-.bottom4{
+#bottom4{
     grid-area: b4;
 }
 
-.bottom5{
+#bottom5{
     grid-area: b5;
 }
 
-.bottom6{
+#bottom6{
     grid-area: b6;
 }
 
-.bottom7{
+#bottom7{
     grid-area: b7;
 }
 
-.bottom8{
+#bottom8{
     grid-area: b8;
 }
 
-.bottom1, .bottom2, .bottom3, .bottom4, .bottom4, .bottom5, .bottom6, .bottom7{
+#bottom1, #bottom2, #bottom3, #bottom4, #bottom5, #bottom6, #bottom7{
     border-right: 2px solid rgb(235, 235, 235, 0.2);
+ 
 }
 
-.bottom1, .bottom2, .bottom3, .bottom4, .bottom5, .bottom6, .bottom7, .bottom8{
+#bottom1, #bottom2, #bottom3, #bottom4, #bottom5, #bottom6, #bottom7, #bottom8{
     width: 100%; 
     height: 100%;
     display: grid;
@@ -286,8 +246,57 @@
     justify-items: center;
     padding-top: 1em;
     padding-bottom: 1em;
+    
 }
 
+#leftmain{
+    grid-area: bottom;
+    background-color: #B9A897;
+    width: 100%;
+    height:100%;
+    border-radius: 0px 0px 30px 30px;
+    
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 0px 0px;
+    grid-template-areas:
+      "b1 b2 b3 b4";
+      align-items: center;
+      justify-items: center;
+      display: none;
+      visibility: hidden;
+     
+}
+
+#left1{
+    grid-area: b1;
+    
+}
+#left2{
+  grid-area: b2;
+  }
+#left3{
+      grid-area: b3;
+  }
+#left4{
+      grid-area: b4;
+  }
+  
+
+  #left1, #left2, #left3, #left4{
+      width: 100%; 
+    height: 100%;
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    padding-top: 1em;
+    padding-bottom: 1em;
+  
+    border-right: 2px solid rgb(235, 235, 235, 0.2);
+
+
+  }
 
 
 .top{

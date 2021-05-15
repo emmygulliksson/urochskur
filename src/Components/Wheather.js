@@ -16,6 +16,9 @@ import sunny from './img/gifsunny.gif'
 import pretty from './img/prettygif.gif'
 import squall from './img/flying.gif'
 
+import moment from 'moment';
+
+
 
 
 
@@ -24,6 +27,9 @@ export default function Wheather() {
     const [weatherData, setWeatherData] =useState(null);
     const [city, setCity] = useState('Umeå');
     const [loading, setLoading] = useState(false);
+    var dateFormat = require("dateformat");
+    var now = new Date();
+  
 
   
     const getCurrentData =async () =>{
@@ -83,6 +89,46 @@ export default function Wheather() {
             }
     }
 
+    let showdays =  async () =>{
+        document.getElementById("leftmain").style.visibility = "visible";
+        document.getElementById("leftmain").style.display = "grid";
+
+        document.getElementById("bottom").style.visibility = "hidden";
+        document.getElementById("bottom").style.display = "none";
+
+        document.getElementById("hours").style.background = "#9c8e7f";
+        document.getElementById("days").style.background = "#B9A897";
+        document.getElementById("days").style.borderRadius = "15px 15px 0px 0px";
+        document.getElementById("days").style.zIndex = "15";
+        document.getElementById("days").style.marginLeft = "1em";
+        document.getElementById("days").style.paddingLeft = "1em";
+        document.getElementById("hours").style.borderRadius = "15px 0px 0px 0px";
+        document.getElementById("hours").style.zIndex = "15";
+        document.getElementById("hours").style.paddingRight = "2em";
+        document.getElementById("hours").style.marginRight = "-2em";
+     
+
+    }
+    
+    
+
+    let hidedays =  async () =>{
+        document.getElementById("leftmain").style.visibility = "hidden";
+        document.getElementById("leftmain").style.display = "none";
+
+        document.getElementById("bottom").style.visibility = "visible";
+        document.getElementById("bottom").style.display = "grid";
+
+        document.getElementById("days").style.background = "#9c8e7f";
+        document.getElementById("hours").style.background = "#B9A897";
+        document.getElementById("hours").style.borderRadius = "15px 15px 0px 0px";
+        document.getElementById("hours").style.paddingRight = "1em";
+        document.getElementById("days").style.zIndex = "0";
+        document.getElementById("days").style.marginLeft = "0em";
+        document.getElementById("days").style.paddingLeft = "3em";
+    
+    }
+
 
     
 
@@ -110,30 +156,7 @@ export default function Wheather() {
         
             {weatherData !== null ? (  
                 <div className="main-container">
-                    <div className="leftmain"> 
-                    <div className="left1">
-                            <h5>{dateFormat(new Date(weatherData.list[8].dt*1000).toLocaleDateString("sv-SE"), "dddd, mmmm dS")}</h5> 
-                            <img src={`http://openweathermap.org/img/w/${weatherData.list[8].weather[0].icon}.png`} alt ="weather icon"/>
-                            <h5>{parseFloat(weatherData.list[8].main.temp -273.15).toFixed(1)}&deg;C</h5>
-                         </div>
-                         <div className="left2">
-                            <h5>{dateFormat(new Date(weatherData.list[16].dt*1000).toLocaleDateString("sv-SE"), "dddd, mmmm dS") }</h5> 
-                            <img src={`http://openweathermap.org/img/w/${weatherData.list[16].weather[0].icon}.png`} alt ="weather icon"/>
-                            <h5>{parseFloat(weatherData.list[16].main.temp -273.15).toFixed(1)}&deg;C</h5>
-                         </div>
-                         <div className="left3">
-                            <h5>{dateFormat(new Date(weatherData.list[24].dt*1000).toLocaleDateString("sv-SE"), "dddd, mmmm dS") }</h5> 
-                            <img src={`http://openweathermap.org/img/w/${weatherData.list[24].weather[0].icon}.png`} alt ="weather icon"/>
-                            <h5>{parseFloat(weatherData.list[24].main.temp -273.15).toFixed(1)}&deg;C</h5>
-                         </div>
-                         <div className="left4">
-                            <h5>{dateFormat(new Date(weatherData.list[32].dt*1000).toLocaleDateString("sv-SE"),"dddd, mmmm dS" ) }</h5> 
-                            <img src={`http://openweathermap.org/img/w/${weatherData.list[32].weather[0].icon}.png`} alt ="weather icon"/>
-                            <h5>{parseFloat(weatherData.list[32].main.temp -273.15).toFixed(1)}&deg;C</h5>
-
-                         </div>
-             
-                   </div>
+                
                     <div className="middlemain"> 
                         
                         <div className="top"> 
@@ -149,18 +172,17 @@ export default function Wheather() {
                                 <img src={`http://openweathermap.org/img/w/${weatherData.list[0].weather[0].icon}.png`} alt ="weather icon"/>
                              </div>
 
-                            {/*   <h5>Kolla här {weatherData.list[0].weather[0].description}</h5>  */}
                              
                       
 
                          </div>
                         <div className="min"> 
                        
-                                 <div className="sunrise">  <img src={sunriseimage} className="logo"></img> <br></br> <h5>{new Date(weatherData.city.sunrise*1000).toLocaleTimeString("en-GB")}</h5> </div>
-                                 <div className="sundown"> <img src={sundownimage} className="logo"></img> <br></br> <h5>{new Date(weatherData.city.sunset*1000).toLocaleTimeString("en-GB")}</h5> </div>
                                  <div className="sunrise">  <img src={sunriseimage} className="logo"></img> <br></br> <h5>{new Date(weatherData.city.sunrise*1000).toLocaleTimeString("sv-SE")}</h5> </div>
                                  <div className="sundown"> <img src={sundownimage} className="logo"></img> <br></br> <h5>{new Date(weatherData.city.sunset*1000).toLocaleTimeString("sv-SE")}</h5> </div>
-                            
+                                 <div className="sunrise">  <img src={sunriseimage} className="logo"></img> <br></br> <h5>{new Date(weatherData.city.sunrise*1000).toLocaleTimeString("sv-SE")}</h5> </div>
+                                 <div className="sundown"> <img src={sundownimage} className="logo"></img> <br></br> <h5>{new Date(weatherData.city.sunset*1000).toLocaleTimeString("sv-SE")}</h5> </div>
+                                
                         </div>
                         <div className="actual"> 
                         <div className="temprature">
@@ -168,105 +190,127 @@ export default function Wheather() {
                             </div>
                             <div className="temprature-feel">
                                 <h5>Känns som {parseFloat(weatherData.list[0].main.feels_like -273.15).toFixed(1)}&deg;C</h5>
+                                <h5> {weatherData.list[0].clouds.all}% molnighet</h5>
                             </div>
                         </div>
                         <div className="max"> 
                         <h5>Max: {parseFloat(weatherData.list[0].main.temp_max-273.15).toFixed(1)}&deg;C </h5>
                             <h5>Min: {parseFloat(weatherData.list[0].main.temp_min -273.15).toFixed(1)}&deg;C </h5>
+                            <h5> Luftfuktighet: {weatherData.list[0].main.humidity}%</h5>
+                            <h5> Vindhastighet: {weatherData.list[0].wind.speed} m/s</h5>
                         </div>
                         
+
+
                         
                         </div>
 
                         <div className="center"> 
-                            <button className="hours">Vädret de kommande 24 timmarna</button>
-                            <button className="days">Vädret de kommande dagarna</button>
+                            <button id="hours" onClick={() => hidedays()}>Vädret de kommande 24 timmarna</button>
+                            <button id="days" onClick={() => showdays()} >Vädret de kommande dagarna</button>
                         </div>
 
-                        <div className="bottom"> 
-                        <div className="bottom1">
-                            <h5>{dateFormat(new Date(weatherData.list[1].dt_txt), "HH:MM")}</h5> 
+                        <div id="bottom"> 
+                        <div id="bottom1">
+                            <h5>{new Date(weatherData.list[0].dt*1000).toLocaleTimeString("sv-SE")}</h5> 
                             <div className="weather-icon">
                             <img src={`http://openweathermap.org/img/w/${weatherData.list[1].weather[0].icon}.png`} alt ="weather icon"/>
                             </div>
                             <h3>{parseFloat(weatherData.list[1].main.temp -273.15).toFixed(1)}&deg;C</h3>
                         
                         </div>
-                        <div className="bottom2">
-                            <h5>{dateFormat(new Date(weatherData.list[2].dt_txt), "HH:MM")}</h5> 
+                         <div id="bottom2">
+                         <h5>{new Date(weatherData.list[1].dt*1000).toLocaleTimeString("sv-SE")}</h5> 
                             <div className="weather-icon">
                             <img src={`http://openweathermap.org/img/w/${weatherData.list[2].weather[0].icon}.png`} alt ="weather icon"/>
                             </div>
                             <h3>{parseFloat(weatherData.list[2].main.temp -273.15).toFixed(1)}&deg;C</h3>
                         
                         </div>
-                        <div className="bottom3">
-                            <h5>{dateFormat(new Date(weatherData.list[3].dt_txt), "HH:MM")}</h5> 
+                        <div id="bottom3">
+                            <h5>{new Date(weatherData.list[2].dt*1000).toLocaleTimeString("sv-SE")}</h5> 
                             <div className="weather-icon">
                             <img src={`http://openweathermap.org/img/w/${weatherData.list[3].weather[0].icon}.png`} alt ="weather icon"/>
                             </div>
                             <h3>{parseFloat(weatherData.list[3].main.temp -273.15).toFixed(1)}&deg;C</h3>
                           
                         </div>
-                        <div className="bottom4">
-                            <h5>{dateFormat(new Date(weatherData.list[4].dt_txt), "HH:MM")}</h5> 
+                        <div id="bottom4">
+                            <h5>{new Date(weatherData.list[3].dt*1000).toLocaleTimeString("sv-SE")}</h5> 
                             <div className="weather-icon">
                             <img src={`http://openweathermap.org/img/w/${weatherData.list[4].weather[0].icon}.png`} alt ="weather icon"/>
                             </div>
                             <h3>{parseFloat(weatherData.list[4].main.temp -273.15).toFixed(1)}&deg;C</h3>
                     
                         </div>
-                        <div className="bottom5">
-                            <h5>{dateFormat(new Date(weatherData.list[5].dt_txt), "HH:MM")}</h5> 
+                        <div id="bottom5">
+                            <h5>{new Date(weatherData.list[4].dt*1000).toLocaleTimeString("sv-SE")}</h5> 
                             <div className="weather-icon">
                             <img src={`http://openweathermap.org/img/w/${weatherData.list[5].weather[0].icon}.png`} alt ="weather icon"/>
                             </div>
                             <h3>{parseFloat(weatherData.list[5].main.temp -273.15).toFixed(1)}&deg;C</h3>
                          
                         </div>
-                        <div className="bottom6">
-                            <h5>{dateFormat(new Date(weatherData.list[6].dt_txt), "HH:MM")}</h5> 
+                        <div id="bottom6">
+                            <h5>{new Date(weatherData.list[5].dt*1000).toLocaleTimeString("sv-SE")}</h5> 
                             <div className="weather-icon">
                             <img src={`http://openweathermap.org/img/w/${weatherData.list[6].weather[0].icon}.png`} alt ="weather icon"/>
                             </div>
                             <h3>{parseFloat(weatherData.list[6].main.temp -273.15).toFixed(1)}&deg;C</h3>
                           
                         </div>
-                        <div className="bottom7">
-                            <h5>{dateFormat(new Date(weatherData.list[7].dt_txt), "HH:MM")}</h5> 
+                        <div id="bottom7">
+                            <h5>{new Date(weatherData.list[6].dt*1000).toLocaleTimeString("sv-SE")}</h5> 
                             <div className="weather-icon">
                             <img src={`http://openweathermap.org/img/w/${weatherData.list[7].weather[0].icon}.png`} alt ="weather icon"/>
                             </div>
                             <h3>{parseFloat(weatherData.list[7].main.temp -273.15).toFixed(1)}&deg;C</h3>
                     
                         </div>
-                        <div className="bottom8">
-                            <h5>{dateFormat(new Date(weatherData.list[8].dt_txt), "HH:MM")}</h5> 
+                        <div id="bottom8">
+                            <h5>{new Date(weatherData.list[7].dt*1000).toLocaleTimeString("sv-SE")}</h5> 
                             <div className="weather-icon">
                             <img src={`http://openweathermap.org/img/w/${weatherData.list[8].weather[0].icon}.png`} alt ="weather icon"/>
                             </div>
                             <h3>{parseFloat(weatherData.list[8].main.temp -273.15).toFixed(1)}&deg;C</h3>
                         
                         </div>
+
+
+
+    
+
                         </div>
-                       
+
+                        <div id="leftmain"> 
+                
+                            <div id="left1">
+                                <h5>{dateFormat(new Date(weatherData.list[8].dt*1000).toLocaleDateString("sv-SE"), "dddd, mmmm dS")}</h5> 
+                                <img src={`http://openweathermap.org/img/w/${weatherData.list[8].weather[0].icon}.png`} alt ="weather icon"/>
+                                <h5>{parseFloat(weatherData.list[8].main.temp -273.15).toFixed(1)}&deg;C</h5>
+                            </div>
+                            <div id="left2">
+                                <h5>{dateFormat(new Date(weatherData.list[16].dt*1000).toLocaleDateString("sv-SE"), "dddd, mmmm dS") }</h5> 
+                                <img src={`http://openweathermap.org/img/w/${weatherData.list[16].weather[0].icon}.png`} alt ="weather icon"/>
+                                <h5>{parseFloat(weatherData.list[16].main.temp -273.15).toFixed(1)}&deg;C</h5>
+                            </div>
+                            <div id="left3">
+                                <h5>{dateFormat(new Date(weatherData.list[24].dt*1000).toLocaleDateString("sv-SE"), "dddd, mmmm dS") }</h5> 
+                                <img src={`http://openweathermap.org/img/w/${weatherData.list[24].weather[0].icon}.png`} alt ="weather icon"/>
+                                <h5>{parseFloat(weatherData.list[24].main.temp -273.15).toFixed(1)}&deg;C</h5>
+                            </div>
+                            <div id="left4">
+                                <h5>{dateFormat(new Date(weatherData.list[32].dt*1000).toLocaleDateString("sv-SE"),"dddd, mmmm dS" ) }</h5> 
+                                <img src={`http://openweathermap.org/img/w/${weatherData.list[32].weather[0].icon}.png`} alt ="weather icon"/>
+                                <h5>{parseFloat(weatherData.list[32].main.temp -273.15).toFixed(1)}&deg;C</h5>
+                            </div>
+                    
+                        </div>
+                            
                            
                     
                      </div>
 
-                     <div className="rightmain"> 
-                        
-                            <div className="humidity">
-                                 <h5> Luftfuktighet: {weatherData.list[0].main.humidity}%</h5>
-                                 </div>
-                            <div className="wind">
-                                <h5> Vindhastighet: {weatherData.list[0].wind.speed} m/s</h5>
-                            </div>
-                            <div className="cloud">
-                                <h5> {weatherData.list[0].clouds.all}% molnighet</h5>
-                            </div>
-
-                     </div>
 
 
                     
