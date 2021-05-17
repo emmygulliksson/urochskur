@@ -136,7 +136,10 @@ export default function Wheather() {
     return (
         <div className="container">
             <div className="header">
-                <div className="leftheader"> </div>
+                <div className="leftheader">
+            
+               
+                 </div>
                 
                 <div className="mainheader"> <img src={logoimage} className="logo"></img></div>
                 <div className="rightheader"> 
@@ -152,7 +155,7 @@ export default function Wheather() {
                     <div className="middlemain"> 
                         
                         <div className="top"> 
-                        
+
                         <div className="search-form">
                 
                             <input id="input" type="text" onChange={(e) => setCity(e.target.value) } placeholder="Sök efter plats" onKeyPress={event => {
@@ -320,6 +323,10 @@ export default function Wheather() {
                 </div>
             ) : null }
            
+           <div className="bottomclass">
+                Created by Emmy & Ella  <br></br>
+                Data collected from: openweathermap.org
+           </div>
         </div>
         
     );
