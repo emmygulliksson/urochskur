@@ -140,15 +140,7 @@ export default function Wheather() {
                 
                 <div className="mainheader"> <img src={logoimage} className="logo"></img></div>
                 <div className="rightheader"> 
-                <div className="search-form">
-                
-                    <input id="input" type="text" onChange={(e) => setCity(e.target.value) } placeholder="Sök efter plats" onKeyPress={event => {
-                    if (event.key === 'Enter') {
-                    getCurrentData()
-                    }
-                    }} />
-                    <button type="button" onClick={() => getCurrentData()}>  <img src={search}></img> </button>
-                </div>
+               
                 </div>
                 
                  
@@ -160,6 +152,17 @@ export default function Wheather() {
                     <div className="middlemain"> 
                         
                         <div className="top"> 
+                        
+                        <div className="search-form">
+                
+                            <input id="input" type="text" onChange={(e) => setCity(e.target.value) } placeholder="Sök efter plats" onKeyPress={event => {
+                            if (event.key === 'Enter') {
+                            getCurrentData()
+                            }
+                            }} />
+                            <button type="button" onClick={() => getCurrentData()}>  <img src={search}></img> </button>
+                        </div>
+
                         <div className="temp"> 
                         
                            
