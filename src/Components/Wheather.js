@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from 'react';
 import getWeatherData from "./Data/forecast5DaysWeather";
-import dateFormat from 'dateformat';
 import './weather.css'
 import logoimage from './img/logouroskur.png'
 import sunriseimage from './img/sunrise.png'
@@ -16,20 +15,12 @@ import sunny from './img/gifsunny.gif'
 import pretty from './img/prettygif.gif'
 import squall from './img/flying.gif'
 
-import moment from 'moment';
-
-
-
-
-
 
 export default function Wheather() {
     const [weatherData, setWeatherData] =useState(null);
     const [city, setCity] = useState('Umeå');
     const [loading, setLoading] = useState(false);
     var dateFormat = require("dateformat");
-    var now = new Date();
-  
 
   
     const getCurrentData =async () =>{
@@ -47,11 +38,6 @@ export default function Wheather() {
 }
     useEffect(() => {
         getCurrentData();
-        console.log("hi");
-        console.log(getCurrentData())
-     
-    
-       
     }, []);
 
     let getbkg =  async (weatherbkg) =>{
@@ -158,7 +144,7 @@ export default function Wheather() {
 
                         <div className="search-form">
                 
-                            <input id="input" type="text" onChange={(e) => setCity(e.target.value) } placeholder="Sök efter plats" onKeyPress={event => {
+                            <input id="input" type="text" onChange={(e) => setCity(e.target.value) } placeholder="Search location" onKeyPress={event => {
                             if (event.key === 'Enter') {
                             getCurrentData()
                             }
@@ -169,7 +155,7 @@ export default function Wheather() {
                         <div className="temp"> 
                         
                            
-                            <h5>Live väderprognos</h5>
+                            <h5>Live weather forecast</h5>
                             <div className="location">
                                 <h1><i className="fa fa-street-view"></i>{weatherData.city.name} | {weatherData.city.country}</h1>
                                 <h5> {dateFormat(new Date(weatherData.list[0].dt*1000).toLocaleDateString("sv-SE"), "dddd, mmmm dS")}</h5> 
@@ -177,15 +163,8 @@ export default function Wheather() {
                             <div className="weather-icon">
                                 <img src={`http://openweathermap.org/img/w/${weatherData.list[0].weather[0].icon}.png`} alt ="weather icon"/>
                              </div>
-
-                             
-                      
-
                          </div>
                         <div className="min"> 
-                       
-                                 <div className="sunrise">  <img src={sunriseimage} className="logo"></img> <br></br> <h5>{new Date(weatherData.city.sunrise*1000).toLocaleTimeString("sv-SE")}</h5> </div>
-                                 <div className="sundown"> <img src={sundownimage} className="logo"></img> <br></br> <h5>{new Date(weatherData.city.sunset*1000).toLocaleTimeString("sv-SE")}</h5> </div>
                                  <div className="sunrise">  <img src={sunriseimage} className="logo"></img> <br></br> <h5>{new Date(weatherData.city.sunrise*1000).toLocaleTimeString("sv-SE")}</h5> </div>
                                  <div className="sundown"> <img src={sundownimage} className="logo"></img> <br></br> <h5>{new Date(weatherData.city.sunset*1000).toLocaleTimeString("sv-SE")}</h5> </div>
                                 
@@ -195,15 +174,15 @@ export default function Wheather() {
                                 <h1>{parseFloat(weatherData.list[0].main.temp -273.15).toFixed(1)}&deg;C</h1>
                             </div>
                             <div className="temprature-feel">
-                                <h5>Känns som {parseFloat(weatherData.list[0].main.feels_like -273.15).toFixed(1)}&deg;C</h5>
-                                <h5> {weatherData.list[0].clouds.all}% molnighet</h5>
+                                <h5>Feels like {parseFloat(weatherData.list[0].main.feels_like -273.15).toFixed(1)}&deg;C</h5>
+                                <h5> {weatherData.list[0].clouds.all}% Clouds</h5>
                             </div>
                         </div>
                         <div className="max"> 
                         <h5>Max: {parseFloat(weatherData.list[0].main.temp_max-273.15).toFixed(1)}&deg;C </h5>
                             <h5>Min: {parseFloat(weatherData.list[0].main.temp_min -273.15).toFixed(1)}&deg;C </h5>
-                            <h5> Luftfuktighet: {weatherData.list[0].main.humidity}%</h5>
-                            <h5> Vindhastighet: {weatherData.list[0].wind.speed} m/s</h5>
+                            <h5> Humidity: {weatherData.list[0].main.humidity}%</h5>
+                            <h5> Wind speed: {weatherData.list[0].wind.speed} m/s</h5>
                         </div>
                         
 
@@ -212,8 +191,8 @@ export default function Wheather() {
                         </div>
 
                         <div className="center"> 
-                            <button id="hours" onClick={() => hidedays()}>Vädret de kommande 24 timmarna</button>
-                            <button id="days" onClick={() => showdays()} >Vädret de kommande dagarna</button>
+                            <button id="hours" onClick={() => hidedays()}>Weather the following hours</button>
+                            <button id="days" onClick={() => showdays()} >Weahter the following days</button>
                         </div>
 
                         <div id="bottom"> 
