@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/urochskur/static/css/main.47ad0f16.chunk.css",
+    "main.css": "/urochskur/static/css/main.d710c277.chunk.css",
     "main.js": "/urochskur/static/js/main.408acb22.chunk.js",
     "main.js.map": "/urochskur/static/js/main.408acb22.chunk.js.map",
     "runtime-main.js": "/urochskur/static/js/runtime-main.459b5d48.js",
@@ -10,7 +10,7 @@
     "static/js/3.47991644.chunk.js": "/urochskur/static/js/3.47991644.chunk.js",
     "static/js/3.47991644.chunk.js.map": "/urochskur/static/js/3.47991644.chunk.js.map",
     "index.html": "/urochskur/index.html",
-    "static/css/main.47ad0f16.chunk.css.map": "/urochskur/static/css/main.47ad0f16.chunk.css.map",
+    "static/css/main.d710c277.chunk.css.map": "/urochskur/static/css/main.d710c277.chunk.css.map",
     "static/js/2.494aff00.chunk.js.LICENSE.txt": "/urochskur/static/js/2.494aff00.chunk.js.LICENSE.txt",
     "static/media/index.css": "/urochskur/static/media/Raleway-SemiBold.8fe2bbfb.ttf",
     "static/media/flying.f046875c.gif": "/urochskur/static/media/flying.f046875c.gif",
@@ -27,7 +27,7 @@
   "entrypoints": [
     "static/js/runtime-main.459b5d48.js",
     "static/js/2.494aff00.chunk.js",
-    "static/css/main.47ad0f16.chunk.css",
+    "static/css/main.d710c277.chunk.css",
     "static/js/main.408acb22.chunk.js"
   ]
 }
