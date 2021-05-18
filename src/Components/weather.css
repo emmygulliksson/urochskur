@@ -354,7 +354,7 @@ button img{
 
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 70vh 6vh 35vh ;
+    grid-template-rows: 70vh 6vh 40vh ;
     gap: 0px 0px;
     grid-template-areas:
       "top"
